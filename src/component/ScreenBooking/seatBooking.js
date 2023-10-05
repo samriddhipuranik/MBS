@@ -85,6 +85,38 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
 
  function Seating(){
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const [ticketType, setTicketType] = useState("standard");
+  const [quantity, setQuantity] = useState(1);
+  const calculateTotalPrice = () => {
+    // Define pricing rules based on ticket type (you can modify this)
+    const ticketPrices = {
+      standard: 360, // Standard ticket price
+      premium: 580, // Premium ticket price
+    };
+
+    // Calculate the subtotal (price per ticket * quantity)
+    const subtotal = ticketPrices[ticketType] * quantity;
+
+    // You can add additional logic for discounts, taxes, etc. here
+
+    return subtotal;
+  };
+  const handleQuantityChange = (event) => {
+    const selectedQuantity = parseInt(event.target.value, 10); // Parse the selected value to an integer
+    setQuantity(selectedQuantity); // Update the quantity state
+  };
+  const handleProceedClick = () => {
+    // Calculate the total price
+    const totalPrice = calculateTotalPrice();
+
+    // Here, you can proceed with the booking, e.g., sending data to the backend
+    console.log("Selected Seats:", selectedSeats);
+    console.log("Ticket Type:", ticketType);
+    console.log("Quantity:", quantity);
+    console.log("Total Price:", totalPrice);
+
+    // You can add logic to redirect to a payment page or perform other actions
+  };
 
   const toggleColor = (el) => {
     const seatUnique = el.id;
@@ -129,7 +161,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
       <label htmlFor="quantity">
          <abbr title="Quantity">Qty</abbr>
       </label>
-      <select id="quantity" name="quantity">
+      <select id="quantity" name="quantity" onChange={handleQuantityChange}>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -167,7 +199,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {array.map((el) => (
               <span
               key={el.id}
-              className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+              className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
               onClick={() => toggleColor(el)}
             >
               {el.num}
@@ -211,7 +243,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {a.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -227,7 +259,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {B.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -239,7 +271,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {b.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -255,7 +287,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {C.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -267,7 +299,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {c.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -311,7 +343,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {E.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -323,7 +355,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {e.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -343,7 +375,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {F.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -356,7 +388,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {f.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -372,7 +404,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {G.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -384,7 +416,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {g.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -400,7 +432,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {H.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -412,7 +444,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {h.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -428,7 +460,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {I.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -440,7 +472,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {i.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -456,7 +488,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {J.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -468,7 +500,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {j.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -484,7 +516,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {K.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -496,7 +528,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {k.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -512,7 +544,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {L.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -524,7 +556,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {l.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -540,7 +572,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {M.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -552,7 +584,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {m.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -568,7 +600,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {N.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -580,7 +612,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {n.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -607,8 +639,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {o.map((el) => (
                             <span
-                            key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
+                            key={el.num}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -625,7 +657,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
         <p>All eyes this way please!</p>
       </div>
       <div className="center">
-      <button>Proceed</button>
+      <button onClick={handleProceedClick}>Proceed</button>
       </div>
       
     </div>
