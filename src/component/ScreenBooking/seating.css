@@ -104,8 +104,9 @@ font-size: 14px;
 line-height: 13px;
 color: #CCCCCC;
 }
-.numberBox.selected {
-    background-color: var(--custom-gradient-green); /* Change to the color you want */
+.selected {
+    background: var(--custom-gradient-green); 
+    color: white;
   }
 .lRowBox{
     display: flex;

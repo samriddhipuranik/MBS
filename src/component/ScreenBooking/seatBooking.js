@@ -84,33 +84,20 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
 
 
  function Seating(){
-  const [selected, setSelected] = useState([]);
+  const [selectedSeats, setSelectedSeats] = useState([]);
 
-  // Use the 'useEffect' hook to update the seat colors when 'selected' changes
-  // useEffect(() => {
-  //   const seats = document.querySelectorAll(".numberBox");
-
-  //   // Loop through all seats and update their colors based on 'selected' state
-  //   seats.forEach((seat) => {
-      
-  //     const seatNum = parseInt(seat.innerText, 10);
-  //     console.log(seat)
-  //     if (selected.includes(seatNum)) {
-  //       seat.classList.add("selected");
-  //     } else {
-  //       seat.classList.remove("selected");
-  //     }
-  //   });
-  // }, [selected]);
   const toggleColor = (el) => {
     const seatUnique = el.id;
   
-    if (selected.includes(seatUnique)) {
-      setSelected(selected.filter((id) => id !== seatUnique));
+    if (selectedSeats.includes(seatUnique)) {
+      // Deselect the seat by removing it from the selectedSeats array
+      setSelectedSeats(selectedSeats.filter((id) => id !== seatUnique));
     } else {
-      setSelected([...selected, seatUnique]);
+      // Select the seat by adding it to the selectedSeats array
+      setSelectedSeats([...selectedSeats, seatUnique]);
     }
   };
+  
   const options = {
     weekday: "short",
     month: "short",
@@ -180,7 +167,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {array.map((el) => (
               <span
               key={el.id}
-              className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+              className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
               onClick={() => toggleColor(el)}
             >
               {el.num}
@@ -191,7 +178,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {array1.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selected.includes(el.id) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
   onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -211,7 +198,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {A.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selected.includes(el.id) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
   onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -224,7 +211,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {a.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -239,8 +226,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRowBox">
             {B.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -251,8 +238,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {b.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -267,8 +254,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRowBox">
             {C.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -279,8 +266,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {c.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -296,7 +283,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {D.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selected.includes(el.id) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -308,7 +295,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {d.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selected.includes(el.id) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -323,8 +310,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRowBox">
             {E.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -335,8 +322,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {e.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -355,8 +342,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRowBox">
             {F.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -368,8 +355,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {f.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -384,8 +371,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRowBox">
             {G.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -396,8 +383,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {g.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -412,8 +399,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRowBox">
             {H.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -424,8 +411,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {h.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -440,8 +427,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRowBox">
             {I.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -452,8 +439,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {i.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -468,8 +455,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRowBox">
             {J.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -480,8 +467,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {j.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -496,8 +483,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRowBox">
             {K.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -508,8 +495,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {k.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -524,8 +511,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRowBox">
             {L.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -536,8 +523,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {l.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -552,8 +539,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRowBox">
             {M.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -564,8 +551,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {m.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -580,8 +567,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRowBox">
             {N.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -592,8 +579,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {n.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -608,8 +595,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRowBox">
             {O.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.id) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
@@ -620,8 +607,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {o.map((el) => (
                             <span
-                            key={el.num}
-                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            key={el.id}
+                            className={`numberBox ${selectedSeats.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
                             {el.num}
