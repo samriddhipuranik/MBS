@@ -1,3 +1,26 @@
+:root {
+    --custom-gradient: linear-gradient(
+      to top,
+      #c5c5c5,
+      #c5c5c5,
+      #c5c5c5,
+      #c5c5c5,
+      #c5c5c5,
+      #eee,
+      #fff
+    );
+    --custom-gradient-green: linear-gradient(
+    to top,
+    #00B240,
+    #00B240,
+    #00B240,
+    #00B240,
+    #00B240,
+    #00B240,
+    #00B240
+  );
+  }
+  
 .main{
     display: grid;
 }
@@ -36,7 +59,7 @@ margin: 2.5%;
 color: #00B240;
 border-radius: 7px;
 cursor: pointer;
-background: linear-gradient(to top,#c5c5c5,#c5c5c5,#c5c5c5,#c5c5c5,#c5c5c5,#eee,#fff);
+background: var(--custom-gradient);
 }
 .numberBox:hover{
     transform: scale(1.2);
@@ -63,6 +86,8 @@ background: linear-gradient(to top,#c5c5c5,#c5c5c5,#c5c5c5,#c5c5c5,#c5c5c5,#eee,
 }
 .seatLayout div{
     display: flex;
+    cursor: default;
+
 }
 .seatLayout li{
     width: 100%;
@@ -79,6 +104,9 @@ font-size: 14px;
 line-height: 13px;
 color: #CCCCCC;
 }
+.numberBox.selected {
+    background-color: var(--custom-gradient-green); /* Change to the color you want */
+  }
 .lRowBox{
     display: flex;
   /* justify-content: space-around; */

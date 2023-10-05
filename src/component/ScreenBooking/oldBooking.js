@@ -1,4 +1,4 @@
-import {  useState, useEffect } from "react";
+import {  useState } from "react";
 import { nanoid } from "nanoid";
 import "./seating.css";
 import screenImg from '../../images/screen.png';
@@ -86,31 +86,19 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
  function Seating(){
   const [selected, setSelected] = useState([]);
 
-  // Use the 'useEffect' hook to update the seat colors when 'selected' changes
-  // useEffect(() => {
-  //   const seats = document.querySelectorAll(".numberBox");
-
-  //   // Loop through all seats and update their colors based on 'selected' state
-  //   seats.forEach((seat) => {
-      
-  //     const seatNum = parseInt(seat.innerText, 10);
-  //     console.log(seat)
-  //     if (selected.includes(seatNum)) {
-  //       seat.classList.add("selected");
-  //     } else {
-  //       seat.classList.remove("selected");
-  //     }
-  //   });
-  // }, [selected]);
   const toggleColor = (el) => {
-    const seatUnique = el.id;
-  
-    if (selected.includes(seatUnique)) {
-      setSelected(selected.filter((id) => id !== seatUnique));
+    // Check if the element is already selected
+    if (selected.includes(el.id)) {
+      // Deselect the element by removing it from the selected array
+      setSelected(selected.filter((num) => num !== el.num));
     } else {
-      setSelected([...selected, seatUnique]);
+      // Select the element by adding it to the selected array
+      setSelected([...selected])
+      console.log(setSelected)
+      // setSelected([...selected, el.num]);
     }
   };
+  
   const options = {
     weekday: "short",
     month: "short",
@@ -179,7 +167,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="lRowBox">
             {array.map((el) => (
               <span
-              key={el.id}
+              key={el.num}
               className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
               onClick={() => toggleColor(el)}
             >
@@ -190,9 +178,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="rRowBox">
             {array1.map((el) => (
                             <span
-                            key={el.id}
-                            className={`numberBox ${selected.includes(el.id) ? 'selected' : ''}`}
-  onClick={() => toggleColor(el)}
+                            key={el.num}
+                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            onClick={() => toggleColor(el)}
                           >
                             {el.num}
                           </span>
@@ -210,9 +198,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRowBox">
             {A.map((el) => (
                             <span
-                            key={el.id}
-                            className={`numberBox ${selected.includes(el.id) ? 'selected' : ''}`}
-  onClick={() => toggleColor(el)}
+                            key={el.num}
+                            className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
+                            onClick={() => toggleColor(el)}
                           >
                             {el.num}
                           </span>
@@ -223,7 +211,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
           <div className="pRRowBox">
             {a.map((el) => (
                             <span
-                            key={el.id}
+                            key={el.num}
                             className={`numberBox ${selected.includes(el.num) ? 'selected' : ''}`}
                             onClick={() => toggleColor(el)}
                           >
