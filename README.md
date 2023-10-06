@@ -6,16 +6,7 @@ Inspired by the popular ticket booking platform BookMyShow, I have tried to crea
 ## Deployed Link
 
 https://bms-clone-seat-booking.vercel.app/
-
-## Installation
-
-Install my-project with npm
-
-```bash
-  npm install Movie-SeatBooking-LeadRat
-  cd Movie-SeatBooking-LeadRat
-```
-    
+   
 ## Run Locally
 
 Clone the project
