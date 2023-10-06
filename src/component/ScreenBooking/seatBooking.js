@@ -127,73 +127,58 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
     setQuantity(selectedQuantity); // Update the quantity state
 
   };
-
   const selectSeatsByDefault = (el) => {
-      let updatedSelectedSeats = [...selectedSeats];
-    
-      // Determine whether to select or deselect seats
-      let selectSeats = true;
-    
-      // If the clicked seat is already selected, we are deselecting seats
-      if (selectedSeats.includes(el.id)) {
-        selectSeats = false;
+    // If the last seat is already selected, return without doing anything
+    if (selectedSeats.length === quantity) {
+      return;
+    }
+  
+    let updatedSelectedSeats = [...selectedSeats];
+  
+    // Determine whether to select or deselect seats
+    let selectSeats = true;
+  
+    // If the clicked seat is already selected, we are deselecting seats
+    if (selectedSeats.includes(el.id)) {
+      selectSeats = false;
+    }
+  
+    // Find the row of the clicked seat
+    let clickedRow = null;
+    for (const row of rows) {
+      if (row.includes(el)) {
+        clickedRow = row;
+        break;
       }
-    
-      // Find the row of the clicked seat
-      let clickedRow = null;
-      for (const row of rows) {
-        if (row.includes(el)) {
-          clickedRow = row;
-          break;
-        }
+    }
+  
+    // Find the index of the clicked seat in the row
+    const seatIndex = clickedRow.findIndex((seat) => seat.id === el.id);
+  
+    // Iterate through the current row and select/deselect seats
+    for (let i = seatIndex; i < clickedRow.length; i++) {
+      const seat = clickedRow[i];
+  
+      if (selectSeats) {
+        // Select the seat
+        updatedSelectedSeats.push(seat.id);
+      } else {
+        // Deselect the seat
+        updatedSelectedSeats = updatedSelectedSeats.filter(
+          (id) => id !== seat.id
+        );
       }
-    
-      // Find the index of the clicked seat in the row
-      const seatIndex = clickedRow.findIndex((seat) => seat.id === el.id);
-    
-      // Iterate through the current row and the next row
-      for (let i = 0; i < 2; i++) {
-        const row = rows[rows.indexOf(clickedRow) + i];
-    
-        if (row) {
-          // Find available seats in the row, starting from the clicked seat
-          const availableSeatsInRow = row.slice(seatIndex).filter(
-            (seat) => !selectedSeats.includes(seat.id)
-          );
-    
-          // Select or deselect seats in this row
-          if (selectSeats) {
-            // Select as many available seats as possible in this row
-            if (availableSeatsInRow.length > 0) {
-              const seatsToSelectInRow = availableSeatsInRow.slice(0, quantity);
-    
-              // Update the updatedSelectedSeats array to include these seats
-              updatedSelectedSeats.push(
-                ...seatsToSelectInRow.map((seat) => seat.id)
-              );
-            }
-          } else {
-            // Deselect seats in this row
-            const seatsToDeselectInRow = row.filter((seat) =>
-              selectedSeats.includes(seat.id)
-            );
-    
-            // Update the updatedSelectedSeats array to remove these seats
-            updatedSelectedSeats = updatedSelectedSeats.filter(
-              (id) => !seatsToDeselectInRow.map((seat) => seat.id).includes(id)
-            );
-          }
-    
-          // enough seats break out
-          if (updatedSelectedSeats.length >= quantity) {
-            break;
-          }
-        }
+  
+      // If enough seats are selected, break out of the loop
+      if (updatedSelectedSeats.length >= quantity) {
+        break;
       }
-    
-      // Update the selectedSeats state 
-      setSelectedSeats(updatedSelectedSeats);
-    };
+    }
+  
+    // Update the selectedSeats state
+    setSelectedSeats(updatedSelectedSeats);
+  };
+  
   const toggleColor = (el) => {
     const seatUnique = el.id;
     if (selectedSeats.includes(seatUnique)) {
@@ -274,7 +259,7 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
   <div className="numberBox" ></div><span >Available seat</span>
   </li>
   <li>
-  <div className="numberBox"style={{ background: '#c32424', pointerEvents: 'none'}} ></div><span >Unavailable seat</span>
+  <div className="numberBox"style={{ background: '#c32424', pointerEvents: 'none'}} ></div><span >Sold seat</span>
   </li>
   <li>
   <div className="numberBox" style={{background:'var(--custom-gradient-green)'}} ></div><span >Your selection</span>
