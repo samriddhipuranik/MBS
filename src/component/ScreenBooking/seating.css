@@ -80,9 +80,11 @@ background: var(--custom-gradient);
     justify-content: center;
 
 }
-.seatLayout .numberBox:hover{
+.seatLayout.numberBox:hover{
     transform: scale(1);
     transition: none;
+    background: var(--custom-gradient-green);
+    z-index: 120000000;
 }
 .seatLayout div{
     display: flex;

@@ -124,7 +124,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
     // You can add logic to redirect to a payment page or perform other actions
   };
   const selectSeatsByDefault = (el) => {
-      const updatedSelectedSeats = [...selectedSeats];
+      let updatedSelectedSeats = [...selectedSeats];
     
       // Determine whether to select or deselect seats
       let selectSeats = true;
@@ -174,9 +174,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             );
     
             // Update the updatedSelectedSeats array to remove these seats
-            updatedSelectedSeats.splice(
-              updatedSelectedSeats.indexOf(seatsToDeselectInRow[0].id),
-              quantity
+            updatedSelectedSeats = updatedSelectedSeats.filter(
+              (id) => !seatsToDeselectInRow.map((seat) => seat.id).includes(id)
             );
           }
     
@@ -190,8 +189,6 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
       // Update the selectedSeats state with the updatedSelectedSeats
       setSelectedSeats(updatedSelectedSeats);
     };
-    
-
   const toggleColor = (el) => {
     const seatUnique = el.id;
     if (selectedSeats.includes(seatUnique)) {
