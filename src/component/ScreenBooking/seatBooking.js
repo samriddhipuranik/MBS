@@ -289,7 +289,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {array.map((el) => (
               <span
               key={el.id}
-              className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+              className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+              style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
               onClick={() => handleClick(el,ticketType)} 
             >
               {el.num}
@@ -300,7 +301,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {array1.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
   onClick={() => handleClick(el, ticketType)}
                           >
                             {el.num}
@@ -320,8 +322,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {A.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
   onClick={() => handleClick(el)}
                           >
                             {el.num}
@@ -334,8 +336,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {a.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)}
                           >
                             {el.num}
@@ -351,8 +353,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {B.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -364,8 +366,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {b.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -381,8 +383,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {C.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -394,8 +396,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {c.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)}  
                           >
                             {el.num}
@@ -411,8 +413,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {D.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -424,8 +426,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {d.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -441,8 +443,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {E.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -454,8 +456,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {e.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -475,8 +477,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {F.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -489,8 +491,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {f.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -506,8 +508,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {G.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -519,8 +521,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {g.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -536,8 +538,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {H.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -549,8 +551,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {h.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el,ticketType)} 
                           >
                             {el.num}
@@ -566,8 +568,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {I.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)}
                           >
                             {el.num}
@@ -579,8 +581,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {i.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -596,8 +598,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {J.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el,ticketType)}  
                           >
                             {el.num}
@@ -609,8 +611,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {j.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)}
                           >
                             {el.num}
@@ -626,8 +628,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {K.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -639,8 +641,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {k.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -656,7 +658,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {L.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${isSeatDisabled(el.type) ? 'disabled' : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${isSeatDisabled(el.type) ? 'disabled' : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)}  
                           >
                             {el.num}
@@ -668,8 +671,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {l.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
@@ -686,9 +689,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
                             <span
                             key={el.id}
                             className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
-
-                            onClick={() => handleClick(el, ticketType)}  
                             style={el.isUnavailable ? { background: '#c32424', cursor: 'not-allowed' } : {}}
+                            onClick={() => handleClick(el, ticketType)}  
                           >
                             {el.num}
                           </span>
@@ -699,8 +701,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {m.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el, ticketType)}  
                           >
                             {el.num}
@@ -716,8 +718,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
             {N.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
-
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}}
                             onClick={() => handleClick(el,ticketType)} 
                           >
                             {el.num}
@@ -760,9 +762,8 @@ var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: na
                             <span
                             key={el.num}
                             className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
-
-                            onClick={() => handleClick(el, ticketType)} 
                             style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}} 
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
