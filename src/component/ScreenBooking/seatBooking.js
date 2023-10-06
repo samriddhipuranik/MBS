@@ -125,27 +125,62 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
   };
   const selectSeatsByDefault = (el) => {
       const updatedSelectedSeats = [...selectedSeats];
-      
-      // Find the index of the clicked seat's row
-      const rowIndex = rows.findIndex((row) => row.includes(el));
-      
-      // Iterate through rows starting from rowIndex
-      for (let i = rowIndex; i < rows.length; i++) {
-        const row = rows[i];
-        
-        // Find available seats in the row
-        const availableSeatsInRow = row.filter(
-          (seat) => !selectedSeats.includes(seat.id)
-        );
     
-        // Select as many available seats as possible in this row
-        if (availableSeatsInRow.length > 0) {
-          const seatsToSelectInRow = availableSeatsInRow.slice(0, quantity);
+      // Determine whether to select or deselect seats
+      let selectSeats = true;
     
-          // Update the updatedSelectedSeats array to include these seats
-          updatedSelectedSeats.push(...seatsToSelectInRow.map((seat) => seat.id));
+      // If the clicked seat is already selected, we are deselecting seats
+      if (selectedSeats.includes(el.id)) {
+        selectSeats = false;
+      }
     
-          // If we have selected enough seats, break out of the loop
+      // Find the row of the clicked seat
+      let clickedRow = null;
+      for (const row of rows) {
+        if (row.includes(el)) {
+          clickedRow = row;
+          break;
+        }
+      }
+    
+      // Find the index of the clicked seat in the row
+      const seatIndex = clickedRow.findIndex((seat) => seat.id === el.id);
+    
+      // Iterate through the current row and the next row
+      for (let i = 0; i < 2; i++) {
+        const row = rows[rows.indexOf(clickedRow) + i];
+    
+        if (row) {
+          // Find available seats in the row, starting from the clicked seat
+          const availableSeatsInRow = row.slice(seatIndex).filter(
+            (seat) => !selectedSeats.includes(seat.id)
+          );
+    
+          // Select or deselect seats in this row
+          if (selectSeats) {
+            // Select as many available seats as possible in this row
+            if (availableSeatsInRow.length > 0) {
+              const seatsToSelectInRow = availableSeatsInRow.slice(0, quantity);
+    
+              // Update the updatedSelectedSeats array to include these seats
+              updatedSelectedSeats.push(
+                ...seatsToSelectInRow.map((seat) => seat.id)
+              );
+            }
+          } else {
+            // Deselect seats in this row
+            const seatsToDeselectInRow = row.filter((seat) =>
+              selectedSeats.includes(seat.id)
+            );
+    
+            // Update the updatedSelectedSeats array to remove these seats
+            updatedSelectedSeats.splice(
+              updatedSelectedSeats.indexOf(seatsToDeselectInRow[0].id),
+              quantity
+            );
+          }
+    
+          // If we have selected/deselected enough seats, break out of the loop
           if (updatedSelectedSeats.length >= quantity) {
             break;
           }
