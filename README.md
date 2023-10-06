@@ -12,8 +12,8 @@ https://bms-clone-seat-booking.vercel.app/
 Install my-project with npm
 
 ```bash
-  npm install my-project
-  cd my-project
+  npm install Movie-SeatBooking-LeadRat
+  cd Movie-SeatBooking-LeadRat
 ```
     
 ## Run Locally
@@ -21,13 +21,13 @@ Install my-project with npm
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+   git clone https://github.com/samriddhipuranik/Movie-SeatBooking-LeadRat.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+   cd Movie-SeatBooking-LeadRat
 ```
 
 Install dependencies
