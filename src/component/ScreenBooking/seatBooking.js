@@ -2,127 +2,132 @@ import {  useState } from "react";
 import { nanoid } from "nanoid";
 import "./seating.css";
 import screenImg from '../../images/screen.png';
+import Modal from "../Payment/modal";
 
-var array = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 }
+var array = [{ id: nanoid(), num: 1 ,type: 'premium'}, { id: nanoid(), num: 2,type: 'premium' }, { id: nanoid(), num: 3,type: 'premium' }, { id: nanoid(), num: 4,type: 'premium' }, { id: nanoid(), num: 5 ,type: 'premium'}
 ];
-var array1 = [{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }, { id: nanoid(), num: 9 }, { id: nanoid(), num: 10 },
-{ id: nanoid(), num: 11 }];
-var A = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var a = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
+var array1 = [{ id: nanoid(), num: 6,type: 'premium' }, { id: nanoid(), num: 7,type: 'premium',isUnavailable:'true'  }, { id: nanoid(), num: 8,type: 'premium' }, { id: nanoid(), num: 9,type: 'premium' }, { id: nanoid(), num: 10,type: 'premium' },
+{ id: nanoid(), num: 11,type: 'premium' }];
+var A = [{ id: nanoid(), num: 1,type: 'premium' }, { id: nanoid(), num: 2,type: 'premium' }, { id: nanoid(), num: 3,type: 'premium' }, { id: nanoid(), num: 4,type: 'premium' }, { id: nanoid(), num: 5 ,type: 'premium'},
+{ id: nanoid(), num: 6,type: 'premium' }, { id: nanoid(), num: 7,type: 'premium' }, { id: nanoid(), num: 8,type: 'premium' }];
+var a = [{ id: nanoid(), num: 9,type: 'premium' }, { id: nanoid(), num: 10,type: 'premium' }, { id: nanoid(), num: 11,type: 'premium' }, { id: nanoid(), num: 12 ,type: 'premium'}, { id: nanoid(), num: 13,type: 'premium' },
+{ id: nanoid(), num: 14,type: 'premium' }, { id: nanoid(), num: 15 ,type: 'premium'}, { id: nanoid(), num: 16 ,type: 'premium'}];
 
-var B = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var b = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
+var B = [{ id: nanoid(), num: 1,type: 'premium',isUnavailable:'true'  }, { id: nanoid(), num: 2,type: 'premium' }, { id: nanoid(), num: 3,type: 'premium' }, { id: nanoid(), num: 4,type: 'premium' }, { id: nanoid(), num: 5,type: 'premium' },
+{ id: nanoid(), num: 6,type: 'premium' }, { id: nanoid(), num: 7,type: 'premium' }, { id: nanoid(), num: 8,type: 'premium' }];
+var b = [{ id: nanoid(), num: 9,type: 'premium' }, { id: nanoid(), num: 10,type: 'premium' }, { id: nanoid(), num: 11,type: 'premium' }, { id: nanoid(), num: 12,type: 'premium' }, { id: nanoid(), num: 13,type: 'premium' },
+{ id: nanoid(), num: 14,type: 'premium' }, { id: nanoid(), num: 15,type: 'premium' }, { id: nanoid(), num: 16,type: 'premium' }];
 
-var C = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var c = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
+var C = [{ id: nanoid(), num: 1,type: 'premium' }, { id: nanoid(), num: 2,type: 'premium' }, { id: nanoid(), num: 3,type: 'premium' }, { id: nanoid(), num: 4 ,type: 'premium'}, { id: nanoid(), num: 5,type: 'premium' },
+{ id: nanoid(), num: 6,type: 'premium' }, { id: nanoid(), num: 7 ,type: 'premium'}, { id: nanoid(), num: 8,type: 'premium',isUnavailable:'true'  }];
+var c = [{ id: nanoid(), num: 9,type: 'premium' }, { id: nanoid(), num: 10,type: 'premium' }, { id: nanoid(), num: 11,type: 'premium' }, { id: nanoid(), num: 12,type: 'premium' }, { id: nanoid(), num: 13,type: 'premium' },
+{ id: nanoid(), num: 14 ,type: 'premium'}, { id: nanoid(), num: 15,type: 'premium' }, { id: nanoid(), num: 16,type: 'premium' }];
 
-var D = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var d = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
+var D = [{ id: nanoid(), num: 1, type: 'premium'}, { id: nanoid(), num: 2,type: 'premium' }, { id: nanoid(), num: 3, type: 'premium' }, { id: nanoid(), num: 4,type: 'premium' }, { id: nanoid(), num: 5 ,type: 'premium'},
+{ id: nanoid(), num: 6,type: 'premium',isUnavailable:'true'  }, { id: nanoid(), num: 7,type: 'premium' }, { id: nanoid(), num: 8,type: 'premium' }];
+var d = [{ id: nanoid(), num: 9,type: 'premium' }, { id: nanoid(), num: 10,type: 'premium'}, { id: nanoid(), num: 11,type: 'premium' }, { id: nanoid(), num: 12,type: 'premium' }, { id: nanoid(), num: 13,type: 'premium' },
+{ id: nanoid(), num: 14,type: 'premium' }, { id: nanoid(), num: 15,type: 'premium' }, { id: nanoid(), num: 16,type: 'premium'}];
 
-var E = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var e = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
+var E = [{ id: nanoid(), num: 1,type: 'premium' }, { id: nanoid(), num: 2,type: 'premium' }, { id: nanoid(), num: 3,type: 'premium' }, { id: nanoid(), num: 4,type: 'premium' }, { id: nanoid(), num: 5,type: 'premium' },
+{ id: nanoid(), num: 6,type: 'premium' }, { id: nanoid(), num: 7,type: 'premium' }, { id: nanoid(), num: 8,type: 'premium' }];
+var e = [{ id: nanoid(), num: 9,type: 'premium' }, { id: nanoid(), num: 10 ,type: 'premium'}, { id: nanoid(), num: 11,type: 'premium' }, { id: nanoid(), num: 12,type: 'premium' }, { id: nanoid(), num: 13,type: 'premium' },
+{ id: nanoid(), num: 14 ,type: 'premium'}, { id: nanoid(), num: 15,type: 'premium' }, { id: nanoid(), num: 16,type: 'premium' }];
 
-var F = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var f = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
+var F = [{ id: nanoid(), num: 1,type: 'standard' }, { id: nanoid(), num: 2,type: 'standard' }, { id: nanoid(), num: 3,type: 'standard' }, { id: nanoid(), num: 4,type: 'standard' }, { id: nanoid(), num: 5,type: 'standard' },
+{ id: nanoid(), num: 6,type: 'standard' }, { id: nanoid(), num: 7,type: 'standard' }, { id: nanoid(), num: 8,type: 'standard' }];
+var f = [{ id: nanoid(), num: 9,type: 'standard' }, { id: nanoid(), num: 10,type: 'standard' }, { id: nanoid(), num: 11,type: 'standard' }, { id: nanoid(), num: 12,type: 'standard' }, { id: nanoid(), num: 13,type: 'standard' },
+{ id: nanoid(), num: 14,type: 'standard' }, { id: nanoid(), num: 15,type: 'standard' }, { id: nanoid(), num: 16,type: 'standard' }];
 
-var G = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var g = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
+var G = [{ id: nanoid(), num: 1,type: 'standard'}, { id: nanoid(), num: 2,type: 'standard' }, { id: nanoid(), num: 3,type: 'standard' }, { id: nanoid(), num: 4,type: 'standard' }, { id: nanoid(), num: 5,type: 'standard' },
+{ id: nanoid(), num: 6,type: 'standard' }, { id: nanoid(), num: 7,type: 'standard' }, { id: nanoid(), num: 8,type: 'standard' }];
+var g = [{ id: nanoid(), num: 9,type: 'standard' }, { id: nanoid(), num: 10,type: 'standard' }, { id: nanoid(), num: 11,type: 'standard'}, { id: nanoid(), num: 12,type: 'standard'}, { id: nanoid(), num: 13,type: 'standard'},
+{ id: nanoid(), num: 14,type: 'standard' }, { id: nanoid(), num: 15,type: 'standard' }, { id: nanoid(), num: 16,type: 'standard' }];
 
-var H = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var h = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
+var H = [{ id: nanoid(), num: 1,type: 'standard' }, { id: nanoid(), num: 2,type: 'standard' }, { id: nanoid(), num: 3,type: 'standard' }, { id: nanoid(), num: 4,type: 'standard' }, { id: nanoid(), num: 5,type: 'standard' },
+{ id: nanoid(), num: 6 ,type: 'standard'}, { id: nanoid(), num: 7,type: 'standard' }, { id: nanoid(), num: 8,type: 'standard' }];
+var h = [{ id: nanoid(), num: 9,type: 'standard' }, { id: nanoid(), num: 10,type: 'standard' }, { id: nanoid(), num: 11 ,type: 'standard'}, { id: nanoid(), num: 12,type: 'standard' }, { id: nanoid(), num: 13,type: 'standard' },
+{ id: nanoid(), num: 14,type: 'standard' }, { id: nanoid(), num: 15,type: 'standard' }, { id: nanoid(), num: 16,type: 'standard' }];
 
-var I = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var i = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
+var I = [{ id: nanoid(), num: 1,type: 'standard' }, { id: nanoid(), num: 2,type: 'standard' }, { id: nanoid(), num: 3,type: 'standard' }, { id: nanoid(), num: 4 ,type: 'standard'}, { id: nanoid(), num: 5,type: 'standard' },
+{ id: nanoid(), num: 6,type: 'standard' }, { id: nanoid(), num: 7,type: 'standard' }, { id: nanoid(), num: 8,type: 'standard' }];
+var i = [{ id: nanoid(), num: 9, type:'standard' }, { id: nanoid(), num: 10,type:'standard' }, { id: nanoid(), num: 11,type:'standard' }, { id: nanoid(), num: 12,type:'standard',isUnavailable:'true' }, { id: nanoid(), num: 13,type:'standard' },
+{ id: nanoid(), num: 14,type: 'standard' }, { id: nanoid(), num: 15,type: 'standard' }, { id: nanoid(), num: 16,type: 'standard' }];
 
-var J = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var j = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
-var K = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var k = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
+var J = [{ id: nanoid(), num: 1,type: 'standard' }, { id: nanoid(), num: 2,type: 'standard' }, { id: nanoid(), num: 3,type: 'standard' }, { id: nanoid(), num: 4,type: 'standard' }, { id: nanoid(), num: 5,type: 'standard' },
+{ id: nanoid(), num: 6,type: 'standard' }, { id: nanoid(), num: 7,type: 'standard' }, { id: nanoid(), num: 8,type: 'standard' }];
+var j = [{ id: nanoid(), num: 9,type: 'standard' }, { id: nanoid(), num: 10 ,type: 'standard'}, { id: nanoid(), num: 11,type: 'standard' }, { id: nanoid(), num: 12,type: 'standard' }, { id: nanoid(), num: 13,type: 'standard' },
+{ id: nanoid(), num: 14,type: 'standard' }, { id: nanoid(), num: 15 ,type: 'standard'}, { id: nanoid(), num: 16 ,type: 'standard'}];
+var K = [{ id: nanoid(), num: 1,type: 'standard' }, { id: nanoid(), num: 2,type: 'standard' }, { id: nanoid(), num: 3,type: 'standard' }, { id: nanoid(), num: 4,type: 'standard' }, { id: nanoid(), num: 5,type: 'standard' },
+{ id: nanoid(), num: 6 ,type: 'standard'}, { id: nanoid(), num: 7,type: 'standard' }, { id: nanoid(), num: 8,type: 'standard' }];
+var k = [{ id: nanoid(), num: 9,type: 'standard' }, { id: nanoid(), num: 10,type: 'standard' }, { id: nanoid(), num: 11,type: 'standard' }, { id: nanoid(), num: 12,type: 'standard' }, { id: nanoid(), num: 13,type: 'standard' },
+{ id: nanoid(), num: 14,type: 'standard' }, { id: nanoid(), num: 15,type: 'standard' }, { id: nanoid(), num: 16,type: 'standard' }];
 
-var L = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var l = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
+var L = [{ id: nanoid(), num: 1,type: 'standard' }, { id: nanoid(), num: 2 ,type: 'standard'}, { id: nanoid(), num: 3,type: 'standard' }, { id: nanoid(), num: 4,type: 'standard' }, { id: nanoid(), num: 5 ,type: 'standard'},
+{ id: nanoid(), num: 6,type: 'standard' }, { id: nanoid(), num: 7,type: 'standard' }, { id: nanoid(), num: 8,type: 'standard' }];
+var l = [{ id: nanoid(), num: 9,type: 'standard' }, { id: nanoid(), num: 10,type: 'standard' }, { id: nanoid(), num: 11 ,type: 'standard'}, { id: nanoid(), num: 12,type: 'standard' }, { id: nanoid(), num: 13 ,type: 'standard'},
+{ id: nanoid(), num: 14 ,type: 'standard'}, { id: nanoid(), num: 15,type: 'standard' }, { id: nanoid(), num: 16,type: 'standard' }];
 
-var M = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var m = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
+var M = [{ id: nanoid(), num: 1,type: 'standard' }, { id: nanoid(), num: 2,type: 'standard' }, { id: nanoid(), num: 3,type: 'standard' }, { id: nanoid(), num: 4,type: 'standard' }, { id: nanoid(), num: 5,type: 'standard' },
+{ id: nanoid(), num: 6,type: 'standard',isUnavailable:'true' }, { id: nanoid(), num: 7,type: 'standard' }, { id: nanoid(), num: 8,type: 'standard' }];
+var m = [{ id: nanoid(), num: 9,type: 'standard' }, { id: nanoid(), num: 10,type: 'standard' }, { id: nanoid(), num: 11,type: 'standard' }, { id: nanoid(), num: 12,type: 'standard' }, { id: nanoid(), num: 13,type: 'standard' },
+{ id: nanoid(), num: 14,type: 'standard' }, { id: nanoid(), num: 15,type: 'standard' }, { id: nanoid(), num: 16,type: 'standard' }];
 
-var N = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var n = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
+var N = [{ id: nanoid(), num: 1 ,type: 'standard'}, { id: nanoid(), num: 2,type: 'standard' }, { id: nanoid(), num: 3,type: 'standard' }, { id: nanoid(), num: 4,type: 'standard' }, { id: nanoid(), num: 5,type: 'standard' },
+{ id: nanoid(), num: 6,type: 'standard' }, { id: nanoid(), num: 7 ,type: 'standard'}, { id: nanoid(), num: 8,type: 'standard' }];
+var n = [{ id: nanoid(), num: 9,type: 'standard' }, { id: nanoid(), num: 10 ,type: 'standard'}, { id: nanoid(), num: 11 ,type: 'standard'}, { id: nanoid(), num: 12,type: 'standard' }, { id: nanoid(), num: 13,type: 'standard' },
+{ id: nanoid(), num: 14,type: 'standard' }, { id: nanoid(), num: 15,type: 'standard' }, { id: nanoid(), num: 16,type: 'standard' }];
 
-var O = [{ id: nanoid(), num: 1 }, { id: nanoid(), num: 2 }, { id: nanoid(), num: 3 }, { id: nanoid(), num: 4 }, { id: nanoid(), num: 5 },
-{ id: nanoid(), num: 6 }, { id: nanoid(), num: 7 }, { id: nanoid(), num: 8 }];
-var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), num: 11 }, { id: nanoid(), num: 12 }, { id: nanoid(), num: 13 },
-{ id: nanoid(), num: 14 }, { id: nanoid(), num: 15 }, { id: nanoid(), num: 16 }];
+var O = [{ id: nanoid(), num: 1,type: 'standard'}, { id: nanoid(), num: 2 ,type: 'standard'}, { id: nanoid(), num: 3 ,type: 'standard'}, { id: nanoid(), num: 4,type: 'standard' }, { id: nanoid(), num: 5,type: 'standard' },
+{ id: nanoid(), num: 6,type: 'standard' }, { id: nanoid(), num: 7,type: 'standard' }, { id: nanoid(), num: 8,type: 'standard' }];
+var o = [{ id: nanoid(), num: 9,type: 'standard',isUnavailable: true }, { id: nanoid(), num: 10,isUnavailable: true }, { id: nanoid(), num: 11,type: 'standard' }, { id: nanoid(), num: 12,type: 'standard' }, { id: nanoid(), num: 13,type: 'standard' },
+{ id: nanoid(), num: 14,type: 'standard' }, { id: nanoid(), num: 15,type: 'standard' }, { id: nanoid(), num: 16,type: 'standard' }];
 
 
 
  function Seating(){
   const [selectedSeats, setSelectedSeats] = useState([]);
-  const [ticketType, setTicketType] = useState("standard");
+  const [ticketType, setTicketType] = useState("premium");
   const [quantity, setQuantity] = useState(1);
+  const [totalAmount, setTotalAmount] = useState(0); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const rows = [
     array, array1, A, a, B, b, C, c, D, d, E, e, F, f, G, g, H, h, I, i, J, j, K, k, L, l, M, m, N, n, O, o
   ];
 
 
+
   const calculateTotalPrice = () => {
-    // Define pricing rules based on ticket type (you can modify this)
     const ticketPrices = {
-      standard: 360, // Standard ticket price
-      premium: 580, // Premium ticket price
+      standard: 360,
+      premium: 580,
     };
 
-    // Calculate the subtotal (price per ticket * quantity)
     const subtotal = ticketPrices[ticketType] * quantity;
-
-    // You can add additional logic for discounts, taxes, etc. here
 
     return subtotal;
   };
 
+  const handleProceedToPayment = () => {
+    if (selectedSeats.length > 0) {
+      const total = calculateTotalPrice();
+      setTotalAmount(total); // Set the total amount
+      setIsModalOpen(true);
+    } else {
+      alert('Please select at least one seat before proceeding to payment.');
+    }
+  };
+  const closeModal = () => {
+    setIsModalOpen(false); // Close the modal
+    window.location.reload();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  };
   const handleQuantityChange = (event) => {
     const selectedQuantity = parseInt(event.target.value, 10); // Parse the selected value to an integer
     setQuantity(selectedQuantity); // Update the quantity state
+
   };
 
-  const handleProceedClick = () => {
-    // Calculate the total price
-    const totalPrice = calculateTotalPrice();
-    // Here, you can proceed with the booking, e.g., sending data to the backend
-    console.log("Selected Seats:", selectedSeats);
-    console.log("Ticket Type:", ticketType);
-    console.log("Quantity:", quantity);
-    console.log("Total Price:", totalPrice);
-
-    // You can add logic to redirect to a payment page or perform other actions
-  };
   const selectSeatsByDefault = (el) => {
       let updatedSelectedSeats = [...selectedSeats];
     
@@ -179,38 +184,41 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             );
           }
     
-          // If we have selected/deselected enough seats, break out of the loop
+          // enough seats break out
           if (updatedSelectedSeats.length >= quantity) {
             break;
           }
         }
       }
     
-      // Update the selectedSeats state with the updatedSelectedSeats
+      // Update the selectedSeats state 
       setSelectedSeats(updatedSelectedSeats);
     };
   const toggleColor = (el) => {
     const seatUnique = el.id;
     if (selectedSeats.includes(seatUnique)) {
-      // Deselect the seat by removing it from the selectedSeats array
+      // Deselect the seat 
       setSelectedSeats(selectedSeats.filter((id) => id !== seatUnique));
     } else {
-      // Select the seat by adding it to the selectedSeats array
+      // Select the seat 
       setSelectedSeats([...selectedSeats, seatUnique]);
     }
   };
 
   const handleClick = (el) => {
-    // Call selectSeatsByDefault to select seats
     selectSeatsByDefault(el);
-
-    // Call toggleColor for each selected seat after the loop
     selectedSeats.forEach((seatId) => {
       const seat = rows.flat().find((seat) => seat.id === seatId);
       toggleColor(seat);
     });
   };
-  
+  const isSeatDisabled = (seatType) => {
+    if (!ticketType) {
+      return false;
+    }
+    return ticketType !== seatType;
+  };
+    
   const options = {
     weekday: "short",
     month: "short",
@@ -233,9 +241,10 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
   <form>
     <div className="form-group" style={{ display: "inline-block", marginRight: "20px" }}>
       <label htmlFor="ticketType">Ticket Type</label>
-      <select id="ticketType" name="ticketType">
-        <option value="standard">Standard</option>
-        <option value="premium">Premium</option>
+      <select id="ticketType" name="ticketType"  value={ticketType}
+  onChange={(e) => setTicketType(e.target.value)}>
+        <option value="standard">standard</option>
+        <option value="premium">premium</option>
       </select>
     </div>
     <div className="form-group" style={{ display: "inline-block" }}>
@@ -265,7 +274,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
   <div className="numberBox" ></div><span >Available seat</span>
   </li>
   <li>
-  <div className="numberBox" ></div><span >Unavailable seat</span>
+  <div className="numberBox"style={{ background: '#c32424', pointerEvents: 'none'}} ></div><span >Unavailable seat</span>
   </li>
   <li>
   <div className="numberBox" style={{background:'var(--custom-gradient-green)'}} ></div><span >Your selection</span>
@@ -273,15 +282,15 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
   </ul>
 </div>
       <div className="reclinerMovie">
-        <div className="recliner3D">3D RECLINER Rs.360.00</div>
+        <div className="spacedPRow">PREMIUM Rs.580.00</div>
         <div className="rRow">
           <div className="namingSeat">R</div>
           <div className="lRowBox">
             {array.map((el) => (
               <span
               key={el.id}
-              className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-              onClick={() => handleClick(el)}
+              className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+              onClick={() => handleClick(el,ticketType)} 
             >
               {el.num}
             </span>
@@ -291,8 +300,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {array1.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-  onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+  onClick={() => handleClick(el, ticketType)}
                           >
                             {el.num}
                           </span>
@@ -303,7 +312,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
       </div>
 
       <div className="reclinerMovie">
-        <div className="recliner3D">3D PRIME Rs.220.00</div>
+        <div className="spacedPRow"></div>
 
         <div className="rRow">
           <div className="namingSeat">P</div>
@@ -311,7 +320,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {A.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
   onClick={() => handleClick(el)}
                           >
                             {el.num}
@@ -324,8 +334,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {a.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)}
                           >
                             {el.num}
                           </span>
@@ -340,8 +351,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {B.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -352,8 +364,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {b.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -368,8 +381,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {C.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -380,8 +394,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {c.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)}  
                           >
                             {el.num}
                           </span>
@@ -396,8 +411,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {D.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -408,8 +424,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {d.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -424,8 +441,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {E.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -436,8 +454,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {e.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -448,7 +467,7 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
       </div>
 
       <div className="reclinerMovie">
-        <div className="recliner3D">3D CLASSIC Rs.200.00</div>
+        <div className="spacedPRow">STANDARD Rs.360.00</div>
 
         <div className="rRow">
           <div className="namingSeat">J</div>
@@ -456,8 +475,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {F.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -469,8 +489,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {f.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -485,8 +506,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {G.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -497,8 +519,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {g.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -513,8 +536,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {H.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -525,8 +549,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {h.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el,ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -541,8 +566,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {I.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)}
                           >
                             {el.num}
                           </span>
@@ -553,8 +579,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {i.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -569,8 +596,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {J.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el,ticketType)}  
                           >
                             {el.num}
                           </span>
@@ -581,8 +609,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {j.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)}
                           >
                             {el.num}
                           </span>
@@ -597,8 +626,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {K.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -609,8 +639,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {k.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -625,8 +656,8 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {L.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${isSeatDisabled(el.type) ? 'disabled' : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+                            onClick={() => handleClick(el, ticketType)}  
                           >
                             {el.num}
                           </span>
@@ -637,8 +668,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {l.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -653,8 +685,10 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {M.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)}  
+                            style={el.isUnavailable ? { background: '#c32424', cursor: 'not-allowed' } : {}}
                           >
                             {el.num}
                           </span>
@@ -665,8 +699,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {m.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)}  
                           >
                             {el.num}
                           </span>
@@ -681,8 +716,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {N.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}${el.isUnavailable ? 'unavailable' : ''}`}
+
+                            onClick={() => handleClick(el,ticketType)} 
                           >
                             {el.num}
                           </span>
@@ -693,8 +729,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {n.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() =>handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}} 
+                            onClick={() =>handleClick(el,ticketType)}  
                           >
                             {el.num}
                           </span>
@@ -709,8 +746,9 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {O.map((el) => (
                             <span
                             key={el.id}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+                            onClick={() => handleClick(el, ticketType)}
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}} 
                           >
                             {el.num}
                           </span>
@@ -721,8 +759,10 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
             {o.map((el) => (
                             <span
                             key={el.num}
-                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''}`}
-                            onClick={() => handleClick(el)}
+                            className={`numberBox ${selectedSeats.includes(el.id) ? 'selected' : ''} ${el.type ? (isSeatDisabled(el.type) ? 'disabled' : '') : ''}`}
+
+                            onClick={() => handleClick(el, ticketType)} 
+                            style={el.isUnavailable ? { background: '#c32424', pointerEvents: 'none' } : {}} 
                           >
                             {el.num}
                           </span>
@@ -738,8 +778,13 @@ var o = [{ id: nanoid(), num: 9 }, { id: nanoid(), num: 10 }, { id: nanoid(), nu
         <p>All eyes this way please!</p>
       </div>
       <div className="center">
-      <button onClick={handleProceedClick}>Proceed</button>
-      </div>
+      <button className = 'pay_btn' onClick={handleProceedToPayment}>Proceed to Payment</button>
+
+{/* Display total amount if it's calculated */}
+{totalAmount > 0 && (
+        <Modal isOpen={isModalOpen}  totalAmount={totalAmount} onClose={closeModal} />
+      )}
+</div>
       
     </div>
   );
