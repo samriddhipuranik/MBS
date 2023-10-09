@@ -1298,6 +1298,8 @@ function Seating() {
             isOpen={isModalOpen}
             totalAmount={totalAmount}
             onClose={closeModal}
+            quantity={quantity}
+            ticketType={ticketType}
           />
         )}
       </div>
