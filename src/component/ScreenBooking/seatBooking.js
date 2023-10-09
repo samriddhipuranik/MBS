@@ -1285,7 +1285,7 @@ function Seating() {
           onClick={handleProceedToPayment}
           disabled={selectedSeats.length !== quantity}
         >
-          Proceed to Payment
+          Book Ticket
       <span className="first"></span>
       {/* <span className="second"></span> */}
       <span className="third"></span>
