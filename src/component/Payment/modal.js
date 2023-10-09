@@ -8,7 +8,7 @@ function Modal({ isOpen, onClose, totalAmount, quantity, ticketType }) {
   const [bookingStatus, setBookingStatus] = useState("Payment Pending"); //booking status
 
   const handlePaymentSuccess = () => {
-    setBookingStatus("Tickets Booked!");
+    quantity>1?setBookingStatus("Tickets Booked!"):setBookingStatus("Ticket Booked!");
     setShowConfetti(true);
   };
 
