@@ -1286,6 +1286,10 @@ function Seating() {
           disabled={selectedSeats.length !== quantity}
         >
           Proceed to Payment
+      <span className="first"></span>
+      {/* <span className="second"></span> */}
+      <span className="third"></span>
+      <span className="fourth"></span>
         </button>
 
         {/* Display total amount if it's calculated */}
