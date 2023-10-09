@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import "./modal.css";
-// import payImg from "../../images/payDone.png";
+import payImg from "../../images/payDone.png";
 import Confetti from "react-confetti"; 
 
 function Modal({ isOpen, onClose, totalAmount, quantity, ticketType }) {
-  const [showConfetti, setShowConfetti] = useState(false); // State variable
+  const [showConfetti, setShowConfetti] = useState(false); // confetti
+  const [bookingStatus, setBookingStatus] = useState("Payment Pending"); //booking status
 
   const handlePaymentSuccess = () => {
-    setShowConfetti(true); 
+    setBookingStatus("Tickets Booked!");
+    setShowConfetti(true);
   };
 
   return (
+    // Modal backdrop
     isOpen && (
       <div className="modal-backdrop">
         {showConfetti && <Confetti />} 
@@ -26,8 +29,14 @@ function Modal({ isOpen, onClose, totalAmount, quantity, ticketType }) {
           <p>
             <em>Ticket Type: {ticketType}</em>
           </p>
-          <button onClick={handlePaymentSuccess} className="btn_final">Pay</button>
-          {/* <img src={payImg} alt="payment done!" /> */}
+          {bookingStatus === "Payment Pending" ? (
+            <button onClick={handlePaymentSuccess} className="btn_final">Pay</button>
+          ) : (
+            <div>
+            <p><strong>{bookingStatus}</strong></p>
+          <img src={payImg} alt="payment done!" />
+          </div>
+          )}
         </div>
       </div>
     )
